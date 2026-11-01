@@ -1,0 +1,6 @@
+numpy
+scipy
+pillow
+trimesh
+fast-simplification
+shapely
