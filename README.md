@@ -15,6 +15,7 @@ It runs on desktop and phone with nothing to install. It's a single HTML file pl
 ---
 
 ## Contents
+- [You bring the 3D models](#️-you-bring-the-3d-models)
 - [What it does](#what-it-does)
 - [The pieces and finishes](#the-pieces-and-finishes)
 - [How it was made, from photo to 3D book](#how-it-was-made-from-photo-to-3d-book)
@@ -27,6 +28,42 @@ It runs on desktop and phone with nothing to install. It's a single HTML file pl
 - [Credits, honesty and licence](#credits-honesty-and-licence)
 
 ---
+
+## ⚠️ You bring the 3D models
+
+This repo turns 3D models into an interactive catalogue. **It does not create the 3D models from your photos by itself.** For each piece you need a 3D model, either:
+
+- **generated from your product photo** with an image-to-3D tool (see the list below), then cleaned up with this repo's pipeline or the Claude skill, or
+- **downloaded** from the manufacturer or a free model library, or
+- **modelled** by you or a 3D artist (Blender, 3ds Max, SketchUp…), exported as `.glb`.
+
+### Image-to-3D tools (photo → 3D model)
+
+| Tool | Type | Notes |
+|---|---|---|
+| [Hunyuan3D](https://3d.hunyuan.tencent.com) · [open source](https://github.com/Tencent-Hunyuan/Hunyuan3D-2) | Online + free to run locally | Used for this demo. Good shape and texture. Local runs need a strong NVIDIA GPU. |
+| [TRELLIS](https://github.com/microsoft/TRELLIS) | Free, open source (Microsoft) | Strong quality. Runs locally, and there are free demos on Hugging Face Spaces. |
+| [Stable Fast 3D](https://github.com/Stability-AI/stable-fast-3d) | Free, open source | Very fast. Simpler detail. |
+| [Meshy](https://www.meshy.ai) | Online, free tier | Easy web app, with PBR texture options. |
+| [Tripo](https://www.tripo3d.ai) | Online, free tier | Fast, with clean topology options. |
+| [Rodin (Hyper3D)](https://hyper3d.ai) | Online, paid credits | High-detail, production-quality output. |
+| [Higgsfield](https://higgsfield.ai) | Online, credits | Image-to-3D (Hunyuan3D) next to its image and video tools. Also works as a connector inside Claude. |
+
+Tips: use one clean photo per piece on a plain background, at a three-quarter angle. Export as **GLB**. Expect the result to be heavy and noisy; that's what the pipeline cleans up.
+
+### Free and ready-made 3D furniture
+
+| Library | Licence | Notes |
+|---|---|---|
+| [BIMobject](https://www.bimobject.com) | Free download (manufacturer terms) | Real furniture from real manufacturers. Often the best option for an actual brand catalogue. |
+| [Poly Haven – models](https://polyhaven.com/models) | CC0 (free for anything) | Small but high-quality set, including furniture. |
+| [Sketchfab](https://sketchfab.com/search?features=downloadable&type=models&q=furniture) | Varies per model | Filter by "Downloadable" and check each licence (CC-BY needs credit). |
+| [BlenderKit](https://www.blenderkit.com) | Free + paid | Huge furniture library inside Blender. |
+| [3D Warehouse](https://3dwarehouse.sketchup.com) | Varies | Lots of furniture, including manufacturer uploads. Export to GLB through Blender or SketchUp. |
+
+**Free materials and textures:** [Poly Haven textures](https://polyhaven.com/textures) and [ambientCG](https://ambientcg.com) (both CC0). Fabric, leather, wood and stone scans can replace the procedural sets in `tex/`.
+
+> Always check the licence before using a model or image in a real commercial catalogue.
 
 ## What it does
 
@@ -72,7 +109,7 @@ That's 30+ finishes in total.
 2. Upload your product photos, one clean image per piece.
 3. Ask for a 3D catalogue. Claude generates the 3D models, splits the materials, cleans and shrinks the meshes, applies the materials, builds the book, and checks every piece and swatch.
 
-> **You need an image-to-3D tool** for step 2, such as a Higgsfield / Hunyuan3D connector, Meshy, Rodin, Tripo, or a local Hunyuan3D-2 / TRELLIS install. This repo doesn't include one. The skill tells Claude to stop and say so if none is available, rather than invent models.
+> **You need an image-to-3D tool** ([list above](#image-to-3d-tools-photo--3d-model)) for step 2, such as a Higgsfield / Hunyuan3D connector, Meshy, Rodin, Tripo, or a local Hunyuan3D-2 / TRELLIS install. This repo doesn't include one. The skill tells Claude to stop and say so if none is available, rather than invent models.
 
 ## Run it locally
 

@@ -12,7 +12,8 @@ Turns product photos into the "Absolute Interior" style catalogue in this reposi
 - The user's product photos: one clean image per piece, ideally on a plain background.
 - **An image-to-3D tool.** This repo does not include one. Use whatever is connected or installed:
   a Higgsfield `generate_3d` (Hunyuan3D) connector, Meshy, Rodin, Tripo, or a local Hunyuan3D-2 / TRELLIS install.
-  If none is available, say so and stop. Don't invent models.
+  If none is available, say so and stop. Don't invent models. The README lists free and paid
+  image-to-3D tools, plus free 3D furniture libraries the user can download ready-made models from instead.
 - Python 3 (`pip install -r tools/requirements.txt`) and Node (`cd tools && npm install`).
 
 ## Steps
