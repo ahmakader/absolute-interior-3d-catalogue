@@ -10,6 +10,8 @@
 
 ### ▶ الديمو: https://ahmakader.github.io/absolute-interior-3d-catalogue/
 
+### 📘 اعمل واحد بتاعك: [الشرح خطوة بخطوة](docs/STEP_BY_STEP.ar.md) · ⬇️ [سكيل Claude (ZIP)](skill/furniture-3d-catalogue.zip)
+
 <p align="center"><img src="assets/demo.gif" alt="سكرول في الكتالوج وكل قطعة بتطلع من الصفحة" width="480"> <img src="assets/materials.gif" alt="تغيير جلد ورجول الكرسي لايف" width="480"></p>
 
 بيشتغل على الكمبيوتر والموبايل من غير ما تنزّل أي حاجة. هو ملف HTML واحد ومعاه الموديلات والخامات.
@@ -88,10 +90,12 @@
 
 ## اعمل واحد زيه مع Claude
 
-الملف [`skill/SKILL.md`](skill/SKILL.md) عبارة عن **سكيل لـClaude** بتعمل كل الخطوات دي بدالك:
+فولدر [`skill/furniture-3d-catalogue`](skill/furniture-3d-catalogue/SKILL.md) عبارة عن **سكيل لـClaude** بتعمل كل الخطوات دي بدالك. فيها التعليمات وأدوات التحويل وقالب الكتالوج، وجاهزة للرفع على طول كملف [`furniture-3d-catalogue.zip`](skill/furniture-3d-catalogue.zip).
 
-1. ضيف السكيل لـClaude.
-2. ارفع صور منتجاتك، صورة نضيفة لكل قطعة.
+👉 **أول مرة؟ امشي على [الشرح خطوة بخطوة](docs/STEP_BY_STEP.ar.md).** فيه تجهيز الصور، وإزاي تجيب الموديلات الـ3D، وتركيب السكيل، والبرومبت اللي تلزقه بالظبط، ومراجعة النتيجة، ونشر اللينك.
+
+1. ضيف السكيل لـClaude: **Customize ← Skills ← + ← Create skill ← Upload a skill** واختار ملف الـZIP (لازم يكون الـcode execution شغّال). ولو بتستخدم Claude Code انسخ الفولدر لـ`~/.claude/skills/`.
+2. ارفع صور منتجاتك، صورة نضيفة لكل قطعة، أو ملفات الـGLB بتاعتك.
 3. اطلب كتالوج 3D. Claude هيعمل الموديلات، ويقسّم الخامات، وينضّف ويصغّر الموديلات، ويحط الخامات، ويبني الكتاب، ويراجع كل قطعة وكل خامة.
 
 > **محتاج أداة تحويل صورة لـ3D** للخطوة التانية، زي Higgsfield / Hunyuan3D أو Meshy أو Rodin أو Tripo، أو Hunyuan3D-2 / TRELLIS متسطّب عندك. الأداة دي مش موجودة في الريبو، ولو مفيش أداة متاحة السكيل بتقول لـClaude يقف ويقولك، بدل ما يألّف موديلات.

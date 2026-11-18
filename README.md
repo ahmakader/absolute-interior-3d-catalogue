@@ -8,6 +8,8 @@ An interactive catalogue built as an open book in the browser. Scroll and the pa
 
 ### ▶ Live demo: https://ahmakader.github.io/absolute-interior-3d-catalogue/
 
+### 📘 Make your own: [step-by-step guide](docs/STEP_BY_STEP.md) · [الشرح خطوة بخطوة بالعربي](docs/STEP_BY_STEP.ar.md) · ⬇️ [the Claude skill (ZIP)](skill/furniture-3d-catalogue.zip)
+
 <p align="center"><img src="assets/demo.gif" alt="Scrolling through the catalogue: every piece rises out of the page" width="480"> <img src="assets/materials.gif" alt="Changing the armchair's leather and legs live" width="480"></p>
 
 It runs on desktop and phone with nothing to install. It's a single HTML file plus models and textures: no build step, no framework, no server code.
@@ -19,7 +21,7 @@ It runs on desktop and phone with nothing to install. It's a single HTML file pl
 - [What it does](#what-it-does)
 - [The pieces and finishes](#the-pieces-and-finishes)
 - [How it was made, from photo to 3D book](#how-it-was-made-from-photo-to-3d-book)
-- [Make your own with Claude](#make-your-own-with-claude)
+- [Make your own with Claude](#make-your-own-with-claude) (full guide: [docs/STEP_BY_STEP.md](docs/STEP_BY_STEP.md))
 - [Run it locally](#run-it-locally)
 - [Use it for your own catalogue](#use-it-for-your-own-catalogue)
 - [Publish it on GitHub Pages](#publish-it-on-github-pages)
@@ -103,10 +105,12 @@ That's 30+ finishes in total.
 
 ## Make your own with Claude
 
-[`skill/SKILL.md`](skill/SKILL.md) is a **Claude skill** that runs this whole pipeline for you:
+[`skill/furniture-3d-catalogue`](skill/furniture-3d-catalogue/SKILL.md) is a **Claude skill** that runs this whole pipeline for you. It's self-contained (instructions, pipeline scripts and the catalogue template) and ready to upload as [`furniture-3d-catalogue.zip`](skill/furniture-3d-catalogue.zip).
 
-1. Add the skill to Claude.
-2. Upload your product photos, one clean image per piece.
+👉 **New to this? Follow the [step-by-step guide](docs/STEP_BY_STEP.md)** ([بالعربي](docs/STEP_BY_STEP.ar.md)). It covers photos, getting the 3D models, installing the skill, the exact prompt to paste, checking the result and publishing your link.
+
+1. Add the skill to Claude: **Customize → Skills → + → Create skill → Upload a skill** and choose the ZIP (code execution must be on). In Claude Code, copy the folder to `~/.claude/skills/`.
+2. Upload your product photos, one clean image per piece, or your GLB files.
 3. Ask for a 3D catalogue. Claude generates the 3D models, splits the materials, cleans and shrinks the meshes, applies the materials, builds the book, and checks every piece and swatch.
 
 > **You need an image-to-3D tool** ([list above](#image-to-3d-tools-photo--3d-model)) for step 2, such as a Higgsfield / Hunyuan3D connector, Meshy, Rodin, Tripo, or a local Hunyuan3D-2 / TRELLIS install. This repo doesn't include one. The skill tells Claude to stop and say so if none is available, rather than invent models.
@@ -153,7 +157,8 @@ index.html        the whole app: three.js scene, book, interaction, catalogue da
 models/           compressed GLB models, one mesh per material zone
 tex/              PBR texture sets (albedo .webp, normal .jpg, roughness .webp)
 img/              flat product images shown on the pages
-skill/SKILL.md    the Claude skill: product photos in, 3D catalogue out
+skill/            the Claude skill (folder + ready-to-upload ZIP): product photos in, 3D catalogue out
+docs/             step-by-step guide in English and Arabic
 tools/            the asset pipeline (zones, clean borders, plinths, UVs, compression, textures)
 assets/           README images
 ```
