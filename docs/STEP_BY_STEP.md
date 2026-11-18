@@ -21,9 +21,17 @@ From product photos to a live 3D catalogue link you can send to clients. No codi
 
 ## Step 1: Look at the demo
 
+<p align="center"><img src="img/step-1-demo.jpg" alt="The live catalogue on a computer and on a phone" width="900"></p>
+
+**①** the piece rises out of the page · **②** tap a swatch to change the material · **③** page dots and arrows to turn pages. Right: the same catalogue on a phone.
+
 Open the [live demo](https://ahmakader.github.io/absolute-interior-3d-catalogue/) and scroll through it. Drag a piece to turn it and tap the swatches. This is exactly what you're going to build.
 
 ## Step 2: Prepare your photos
+
+<p align="center"><img src="img/step-2-photos.jpg" alt="Good and bad product photos" width="900"></p>
+
+**①** good: the whole piece, plain light background, three-quarter angle · **②** bad: piece cut off, or a dark photo with heavy shadows · **③** for each piece, note the real size, the parts that can change and the options.
 
 - **One photo per piece**, with the whole piece in frame.
 - **Plain, light background.** A studio or catalogue shot is ideal.
@@ -36,6 +44,10 @@ Open the [live demo](https://ahmakader.github.io/absolute-interior-3d-catalogue/
   - **the options** for each part, for example *5 boucle colours · walnut / oak / black legs*
 
 ## Step 3: Get a 3D model for each piece
+
+<p align="center"><img src="img/step-3-models.jpg" alt="From photo to a raw 3D model file" width="900"></p>
+
+**A** your product photo → **B** the raw model from an image-to-3D tool (heavy, about 45 MB, all one material) → **C** download it as a `.glb` file. Below: tools and libraries you can use.
 
 Choose one route:
 
@@ -55,6 +67,10 @@ Name each file after the piece, for example `sofa.glb`.
 
 ## Step 4: Add the skill to Claude
 
+<p align="center"><img src="img/step-4-install-skill.jpg" alt="Uploading the skill ZIP in Claude" width="900"></p>
+
+**①** download the ZIP · **②** Customize → Skills · **③** click **+** · **④** Upload a skill · **⑤** make sure it's switched on. *Diagram: Claude's screens may look slightly different.*
+
 1. Download **[`skill/furniture-3d-catalogue.zip`](../skill/furniture-3d-catalogue.zip)** from this repo (open the file, then click **Download raw file**).
 2. In Claude, turn on code execution: **Settings → Capabilities → "Code execution and file creation"** (in newer layouts it's called **"Create and edit files"**). On Team or Enterprise, an owner enables it.
 3. Go to **Customize → Skills**, click **+**, then **+ Create skill → Upload a skill**, and choose the ZIP.
@@ -65,6 +81,10 @@ Name each file after the piece, for example `sofa.glb`.
 Menu names can change. If yours look different, see Anthropic's guide: [Use Skills in Claude](https://support.claude.com/en/articles/12512180-use-skills).
 
 ## Step 5: Ask Claude to build it
+
+<p align="center"><img src="img/step-5-prompt.jpg" alt="A new chat with photos attached and the prompt pasted" width="900"></p>
+
+**①** attach your photos (and GLB files) · **②** paste the prompt and fill in your pieces · **③** send.
 
 Start a new chat, attach your photos (and your GLB files if you chose route B or C), and paste:
 
@@ -82,6 +102,10 @@ Show me a colour-coded preview of the material zones for each piece before you b
 
 ## Step 6: Check the zones, then let Claude finish
 
+<p align="center"><img src="img/step-6-zones.jpg" alt="Raw model, colour-coded zone preview and the finished piece" width="900"></p>
+
+**①** the colour preview Claude shows you: each colour is one material zone (fabric / wood / pillows). Check it. · **②** the finished piece with real materials, shrunk from 45 MB to 0.6 MB.
+
 Claude will:
 1. turn each photo into a 3D model (route A), or take your GLB files
 2. **split each model into material zones**, for example fabric / wood / pillows, and show you a colour preview
@@ -95,6 +119,10 @@ At the end you get a **ZIP of your catalogue folder**.
 
 ## Step 7: Open it on your computer
 
+<p align="center"><img src="img/step-7-run-locally.jpg" alt="Running a local server and opening the catalogue" width="900"></p>
+
+**①** start the server inside your catalogue folder · **②** open `localhost:8000` in your browser.
+
 Unzip it. Double-clicking `index.html` **won't work**, because the browser blocks loading 3D files straight from your disk. Instead:
 
 - **Windows / Mac / Linux with Python:** open a terminal in the folder and run `python -m http.server 8000`, then go to http://localhost:8000
@@ -102,6 +130,10 @@ Unzip it. Double-clicking `index.html` **won't work**, because the browser block
 - **Or VS Code:** install the "Live Server" extension and click **Go Live**.
 
 ## Step 8: Publish it and share the link (free)
+
+<p align="center"><img src="img/step-8-publish.jpg" alt="Turning on GitHub Pages" width="900"></p>
+
+**①** Settings → Pages · **②** Deploy from a branch · **③** `main`, `/ (root)`, **Save** · **④** after 1–2 minutes your link appears. It works on phones too. *Diagram: GitHub's page may look slightly different.*
 
 1. Create a free account on [github.com](https://github.com) and click **New repository**. Give it a name, make it **Public**, and create it.
 2. On the empty repo page, click **uploading an existing file** (or **Add file → Upload files**). Drag in **everything inside** your catalogue folder (`index.html`, `models`, `tex`, `img`…) and click **Commit changes**.
